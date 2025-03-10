@@ -11,7 +11,8 @@ RSpec.describe Ride do
     expect(@ride1.terrain).to eq(:hills)
     expect(@ride1.loop?).to eq(false)
   end
-  # it 'calculates total distance' do
-  #   expect(@ride1.total_distance).to e
-  # end
+  it 'calculates total distance' do
+    expect(@ride1.total_distance).to eq(21.4)
+    expect(@ride2.total_distance).to eq(14.9)
+  end
 end
