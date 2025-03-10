@@ -27,18 +27,23 @@ RSpec.describe BikeClub do
 
   end
 
-  it "returns the biker who took most_rides" do
-
-    @biker1.log_ride(@ride1, 92.5)
-    @biker1.log_ride(@ride1, 91.1)
-    @biker2.log_ride(@ride2, 60.9)
-    @biker3.log_ride(@ride2, 61.6)
-
+  it "returns bikers name" do
     @bike_club.add_biker(@biker1)
     @bike_club.add_biker(@biker2)
     @bike_club.add_biker(@biker3)
+    expect(@bike_club.biker_names).to eq(["Kenny", "Athena", "Cate"])
+  end
 
-    expect(@bike_club.most_rides).to eq()
+  it "returns the biker who took most_rides" do
+
+    @biker1.log_ride(@ride1, 92.5)
+    @biker1.log_ride(@ride2, 61.6)
+    @biker2.log_ride(@ride2, 60.9)
+
+    @bike_club.add_biker(@biker1)
+    @bike_club.add_biker(@biker2)
+
+    expect(@bike_club.most_rides).to eq([@biker1])
 
   end
 end
