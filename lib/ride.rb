@@ -4,9 +4,17 @@ class Ride
     @name = data[:name]
     @distance = data[:distance]
     @terrain = data[:terrain]
-    @loop = data[:loop] = false
+    @loop = data[:loop] 
   end
   def loop?
     @loop
+  end
+
+  def total_distance
+    if loop? == true
+      @distance 
+    else 
+      @distance * 2
+    end
   end
 end
