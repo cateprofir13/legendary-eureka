@@ -19,4 +19,9 @@ class Biker
     end
     @rides
   end
+
+  def personal_record(ride)
+    @rides[ride].min
+    
+  end
 end
