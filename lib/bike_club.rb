@@ -9,18 +9,30 @@ class BikeClub
     @bikers << biker
   end
 
-  def biker_names
-    @bikers.map do |biker|
-      biker.name
+  # def most_rides
+  #   @bikers.max_by do |biker|
+  #     biker.rides.values.size
+  #   end
+  # end
+
+  def most_rides_helper
+    results = {}
+    @bikers.each do |biker|
+      if results[biker].nil?
+        results[biker] = 0
+      end
+      biker.rides.each do |ride, times|
+        results[biker] += times.length
+      end
     end
+    results
   end
 
   def most_rides
-    ride_count = 0
-    @bikers.each do |biker|
-
-
+    superior_biker = most_rides_helper.max_by do |biker, rides|
+      rides
     end
+    superior_biker[0]
   end
 
 end

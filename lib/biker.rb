@@ -23,7 +23,7 @@ class Biker
   end
 
   def personal_record(ride)
-    if @rides [ride]
+    if @rides[ride]
       @rides[ride].min
     else
       false
